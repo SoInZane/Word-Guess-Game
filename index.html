@@ -3,33 +3,80 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-
-        <title>Word Guess Game</title>
+        <script src="assets/javascript/game.js" type="text/javascript"></script>
+        <title>Word Guess Game - Fallout Edition</title>
     </head>
     <body>
-        <header id="masthead">
-            <div class="container">
-        
-            <img src="assets/images/Fallout-Please-Stand-By.jpg" alt="Fallout" class="header-image">
-        
-            </div>  
-        <header>
 
-        <div id="main-container">
-                
-            <div class="container">
-                <h1>Hangman Fallout Edition</h1>
-                
-
-
-
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <img src="assets/images/Fallout_Logo.png" class="img-fluid" alt="Responsive image">
+                </div>
             </div>
         </div>
+    </header>
+
+            <main class="container">
+                <section class="row">
+                    <div class="col-md-8">
+                        <div class="block">
+                            <h1 class="block-header">Word Guess Game - Fallout Edition</h1>
+                            <hr />
+                        
+                            <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" alt=""></a>
+                        </div>
+                    <div class="col-md-8">
+                        <div class="block">
+                            <h2>Press Any Key To Get Started!</h2>
+
+                            <h2>Wins<span id="totalWins"></span></h2>
+
+                            <h2>Current Word<span id="currentWord"></span></h2>
+
+                            <h2><span id="word-length"></span></h2>
+
+                            <h2>Number of Guesses Remaining<span id="guessesRemaining"></span></h2>
+
+                            <h2>Letters Already Guessed<span id="lettersGuessed"></span></h2>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        <!-- <div id="main-container">
+            <section class="main-section">
+                
+                <div class="container">
+                    <h1>Word Guess Game - Fallout Edition</h1>
+
+                        <h2>Press Any Key To Get Started!</h2>
+
+                        <h2>Wins<span id="wins"></span></h2>
+
+                        <h2>Current Word<span id="word"></span></h2>
+
+                        <h2>Number of Guesses Remaining<span id="guessesRemaining"></span></h2>
+
+                        <h2>Letters Already Guessed<span id="lettersGuessed"></span></h2>
+                
+                </div>
+            </section>
+        </div> -->
+
+        
 
 
-
-
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
     </body>
 
 
