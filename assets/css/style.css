@@ -11,82 +11,89 @@ body {
 }
 
 html {
-  /* Positioning */
+  /* Positioning  */
   position: relative;
 
   /* Box-model */
   min-height: 100%;
 }
 
-/* add space for fixed nav */
-main {
-  margin: 80px 0;
+#main_image {
+  background: black;
+  max-width: 50%;
+  position: relative;
+  left: 280px;
 }
 
-/* create styles for use for all white main boxes */
-.block {
-  background-color: #fff;
+#gameImages {
+  margin-top: 10px;
+	padding: 30px;
+}
 
+#gameContent {
+	margin-top: 10px;
   padding: 30px;
-  margin-bottom: 30px;
-}
-
-.block-header {
-  /* Typography */
-  color: yellow;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: bold;
-}
-
-/* body, html {
-    background-image: url("/assets/images/Fallout-Please-Stand-By.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: auto;
-    margin: 0;
-} */
-
-/* #header{
-    position: fixed;
-    z-index: 99; 
-    width: 100%;
-    height: 30%;
-    margin: 0 0 30px;
-    overflow: auto;
-    color: #ffffff;
-    background: black;
-    border-bottom: 2px solid #cccccc;
-    text-align: center;
-  }
-.container{
+  text-align: center;
+  color: white;
   
 }
-  img{
-      height: 30%;
-      width: 80%;
-      border: 10px solid orange;
-      display: inline-block;
-      margin: 0 auto;
 
-  }
+h2 {
+  text-align: center;
+}
+
+#totalWins {
+  text-align: center;
+}
+
+#currentWord {
+  text-align: center;
+}
+
+#wordLength {
+  text-align: center;
+}
+
+#guessesRemaining {
+  text-align: center;
+}
+
+#lettersGuessed {
+  text-align: center;
+}
 
 
-#main-container {
-    
-    padding-top: 130px;
-    min-height: calc(100vh - 70px);
-  }
-  
-  .main-section {
-    float: left;
-    width: 100%;
-    max-width: 960px;
-    padding: 30px;
-    margin: 0 0 40px;
-    background: black;
-    border: 1px solid #dddddd;
-    z-index: 99;
-  }
-   */
+#leftColumn {
+	border: 1px solid orange;
+  padding: 30px;
+  height: 634px;
+  width: 300px;
+}
+
+#rightColumn {
+	border: 1px solid orange; 
+	padding: 30px;
+  height: 634px;
+  width: 300px;
+  text-align: center;
+}
+
+#gameImages img {
+  width: 200px;
+  height: 200px;;
+  border: 0 none;
+  opacity: 0.8;
+}
+
+.imgDivs {
+	margin-bottom: 30px;
+}
+
+.names {
+	font-size: 70%;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-top: 5px;
+	text-align: center;
+}
+

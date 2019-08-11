@@ -7,69 +7,79 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-        <script src="assets/javascript/game.js" type="text/javascript"></script>
+        
         <title>Word Guess Game - Fallout Edition</title>
     </head>
     <body>
 
-    <header class="masthead">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 text-center">
-                    <img src="assets/images/Fallout_Logo.png" class="img-fluid" alt="Responsive image">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <img src="assets/images/Fallout_Logo.png" class="center-block img-responsive" alt="Fallout Hangman Edition" id="main_image">
                 </div>
             </div>
         </div>
-    </header>
 
-            <main class="container">
-                <section class="row">
-                    <div class="col-md-8">
-                        <div class="block">
-                            <h1 class="block-header">Word Guess Game - Fallout Edition</h1>
-                            <hr />
+        <div class="row" id="gameContent">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="leftColumn">
+                    <div class="row" id="gameImages">
+                        <div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 imgDivs" id="vaultboy">
+                            <img src="assets/images/vaultboy.png" alt="Vaultboy" class="center-block img-responsive image-thumbnail" ><p class="text-center names">Vault Boy</p>
+                        </div>
+                        <!-- <div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 imgDivs" id="vaulttec">
+                            <img src="assets/images/vaulttec.jpg" alt="Vault Tec" class="center-block img-responsive image-thumbnail"><p class="text-center names">vault Tec</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 imgDivs" id="vault">
+                            <img src="assets/images/vault.jpg" alt="Vault" class="center-block img-responsive image-thumbnail"><p class="text-center names">Vault</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 imgDivs" id="brotherhood">
+                            <img src="assets/images/brotherhood.jpg" alt="BrotherHood" class="center-block img-responsive image-thumbnail"><p class="text-center names">BrotherHood</p>
+                        </div> -->
+                    </div>	
+            
+                    <!-- <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-6">
+                            <img src="assets/images/enclave.jpg" alt="Enclave" class="center-block img-responsive image-thumbnail" id="enclave"><p class="text-center names">Enclave</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-6">
+                            <img src="assets/images/courier.jpg" alt="Courier" class="center-block img-responsive image-thumbnail" id="courier"><p class="text-center names">Courier</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-6">
+                            <img src="assets/images/supermutant.jpg" alt="SuperMutant" class="center-block img-responsive image-thumbnail" id="supermutant"><p class="text-center names">SuperMutant</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-6">
+                            <img src="assets/images/deathclaw.jpg" alt="DeathClaw" class="center-block img-responsive image-thumbnail" id="deathclaw"><p class="text-center names">DeathClaw</p>
+                        </div>
+                    </div>			 -->
+            </div> <!-- column left-->
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="rightColumn"> <!-- column right-->
+
+                    <div class="row" id="gameContent"> <!-- row -->
                         
-                            <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" alt=""></a>
-                        </div>
-                    <div class="col-md-8">
-                        <div class="block">
-                            <h2>Press Any Key To Get Started!</h2>
-
-                            <h2>Wins<span id="totalWins"></span></h2>
-
-                            <h2>Current Word<span id="currentWord"></span></h2>
-
-                            <h2><span id="word-length"></span></h2>
-
-                            <h2>Number of Guesses Remaining<span id="guessesRemaining"></span></h2>
-
-                            <h2>Letters Already Guessed<span id="lettersGuessed"></span></h2>
-                        </div>
+                                <div class="col-xs-1 text-center">
+                                    <h2>Press Any Key To Get Started!</h2>
+                        
+                                <div class="col-xs-1 text-center">
+                                    <p>Wins: <span id="totalWins"></span></p>
+                        
+                                <div class="col-xs-1 text-center">
+                                    <p>Current Word: <span id="currentWord"></span></p>
+                        
+                                <div class="col-xs-1 text-center">
+                                    <p><span id="word-length"></span></p>
+                        
+                                <div class="col-xs-1 text-center">
+                                    <p>Number of Guesses Remaining: <span id="guessesRemaining"></span></p>
+                        
+                                <div class="col-xs-1 text-center">
+                                    <p>Letters Already Guessed: <span id="lettersGuessed"></span></p>
+                        
                     </div>
-                </section>
-            </main>
+        </div>
+            
 
-        <!-- <div id="main-container">
-            <section class="main-section">
-                
-                <div class="container">
-                    <h1>Word Guess Game - Fallout Edition</h1>
-
-                        <h2>Press Any Key To Get Started!</h2>
-
-                        <h2>Wins<span id="wins"></span></h2>
-
-                        <h2>Current Word<span id="word"></span></h2>
-
-                        <h2>Number of Guesses Remaining<span id="guessesRemaining"></span></h2>
-
-                        <h2>Letters Already Guessed<span id="lettersGuessed"></span></h2>
-                
-                </div>
-            </section>
-        </div> -->
-
-        
+        <script src="assets/javascript/game.js" type="text/javascript"></script>
 
 
         

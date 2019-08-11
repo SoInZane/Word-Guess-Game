@@ -1,131 +1,128 @@
-// create an array of words
+// Need to figure out how to keep both the users guess and the guessed letter on the screen
 
-var words = [
-    "courier",
-    "vault",
-    "brotherhood",
-    "fallout",
-    "supermutant",
-    "deathclaw",
-    "enclave",
-    "vaulttec",
+var wordsFallout =                // create an array of words to be guessed 
+    [
+        "brotherhood",
+        "courier",
+        "deathclaw",
+        "enclave",
+        "supermutant",
+        "vault",
+        "vaulttec",
+        "vaultboy",
     ];
 
-const maxGuesses = 10;     // Max number of guesses
+var wins = 0;                   // Tracks the wins
+var currentWord = "";           // Empty variable to store the word to be guessed
+var letterUser = [];            // Users guess
+var numOfLetters = 0;           // Variable to hold number of blanks "_" in the currentWord  
+var currentWordLetters = [];    // Empty array to hold the actual letters in the currentWord
+var letterDisplay = [];         // Empty array to hold the correct letters that display
+var guessesRemaining = 0;       // How many guesses are left  
+var lettersGuessed = [];        // Stores the letters that are guessed 
 
-var lettersGuessed = [];   // Stores the letters that are guessed
-var currentWordIndex;      // Index of the current word in the array
-var guessingWord = [];     // The word that is built to match the current word
-var guessesRemaining = 0;  // How many guesses are left
-var startGame = false;     // Starts game
-var gameFinished = false;  // Ends game
-var wins = 0;              // Tracks the wins
 
-// This will reset game variables
-function resetGame() {
-    guessesRemaining = maxGuesses;
-    startGame = false;
-// Use Math.floor to round the random number down
-    currentWordIndex = Math.floor(Math.random() * (words.length));
+// Function to start a new game
+function newGame() {
 
-// This will clear the arrays
+// Computer selects word at random from the 
+    currentWord = wordsFallout[Math.floor(Math.random() * wordsFallout.length)];
+        console.log("The current word is: " + currentWord);
+
+    currentWordLetters = currentWord.split("");
+        console.log("The current letters are: " + currentWordLetters);
+
+    numOfLetters = currentWordLetters.length;
+        console.log("The number of letters in the current word are: " + numOfLetters);
+
+    guessesRemaining = 14;
     lettersGuessed = [];
-    chosenWord = [];
+    letterDisplay = [];
+    letterUser = [];
 
 
-    // Create the chosen word and clear it
-    for (var i = 0; i < words.length[currentWordIndex].length; i++) {
-        guessingWord.push("_");
+    for(i = 0; i < numOfLetters; i++) {
+        letterDisplay.push("_");
+        console.log(letterDisplay);
+    }
 
-}
-
-document.getElementById("pressKeyTryAgain").style.cssText= "display: none";
-document.getElementById("gameoverImage").style.cssText= "display: none";
-document.getElementById("youwinImage").style.cssText= "display: none";
-
-updateDisplay();
-};
-
-function updateDisplay() {
-
-document.getElementById("totalWins").innerText = wins;
-document.getElementById("currentWord").innerText = "";
-for (var i = 0; i < guessingWord.innerText; i++) {
-    document.getElementById("currentWord").innerText += guessingWord[i];
-}
-
-document.getElementById("guessesRemaining").innerText = guessesRemaining;
-document.getElementById("lettersGuessed").innerText = lettersGuessed;
-if(guessesRemaining <= 0) {
-    document.getElementById("gameoverImage").style.cssText = "display: block";
-    document.getElementById("pressKeyTryAgain").style.cssText = "display: block";
-    gameFinished = true;
+    document.getElementById("word-length").innerHTML = letterDisplay.join(" ");
+    document.getElementById("guessesRemaining").innerHTML = " " + guessesRemaining;
+    document.getElementById("totalWins").innerHTML = wins;
+    document.getElementById("lettersGuessed").innerHTML = " " + lettersGuessed;
 
 }
 
-};
+function checkLetters(letter) {
+
+    if(event.keyCode >= 65 && event.keyCode <= 90) {
+        var correctLetter = false;
+
+        for(var i = 0; i < numOfLetters; i++) {
+            if(currentWord[i] == letter) {
+                correctLetter = true;
+            }
+        }
+
+    if(correctLetter) {
+
+        for(var i = 0; i < numOfLetters; i++) {
+            if(currentWord[i] == letter) {
+                letterDisplay[i] = letter;
+            }
+        }
+    }
+    //  else {
+    //      lettersGuessed.push(lettersGuessed);
+    //      guessesRemaining--;
+    //  }
+     console.log(letterDisplay);
 
 
-document.onkeydown = function(event) {
-    if(gameFinished) {
-        resetGame();
-        gameFinished = false;
     } else {
-        if(event.keyCode >= 65 && event.keyCode <= 90) {
-            makeGuess(event.key.toLowerCase());
-        }
+        alert("Please choose a letter of the alphabet.");
     }
 }
 
-function makeGuess(letter) {
-    if(guessesRemaining > 0) {
-        if(!startGame) {
-            startGame = true;
-        }
+function completeRound() {
+    console.log("Win count: " + wins + " | Guesses Left: " + guessesRemaining);
 
-        // Check that a letter wasn't already used
-        if(lettersGuessed.indexOf(letter) === -1) {
-            lettersGuessed.push(letter);
-            checkGuess(letter);
-        }
+    document.getElementById("word-length").innerHTML = letterDisplay.join(" ");
+    document.getElementById("guessesRemaining").innerHTML = " " + guessesRemaining;
+    document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+
+    if(currentWordLetters.toString() == letterDisplay.toString()) {
+        wins++
+        alert("Congratulations! You guessed " + currentWord + " correctly. Try to guess another!")
+        console.log("Winner")
+
+        document.getElementById("totalWins").innerHTML = wins;
+
+        newGame();
+        document.getElementById("lettersGuessed").innerHTML = " " + " ";
+
+    } else if (guessesRemaining == 0) {
+        alert("Uh oh! You have no more guesses and you have perished by radiation. The correct word was " + currentWord);
+        console.log("Loser")
+
+        newGame();
+        document.getElementById("lettersGuessed").innerHTML = " " + " ";
+
     }
+}
 
-    updateDisplay();
-    checkWin();
-};
+newGame();
 
-// This function takes the letter and finds them 
-// in the string and reaplace them in the guessed word
+document.onkeyup = function(event) {
+    guessesRemaining--;
 
-function verifyGuess(letter) {
-    // Array that will store the positions of letters
-    var sequence = [];
+    lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+        console.log("The letter guessed was " + lettersGuessed);
 
-    // Loop through the word and find letters of the guessed letter
-    //and store in the the array
-    for(var i = 0; i < words[currentWordIndex].length; i++) {
-        if(words[currentWordIndex][i]  === letter) {
-            sequence.push(i);
-        }
-    }
+        // var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        // letterUser.push(userGuess);
 
-    // check for letter and remove a guess
-    if(sequence.length <= 0) {
-        guessesRemaining--;
-    } else {
-        // Loop through letters and repalce "_" with a letter
-        for(var i = 0; i < sequence.length; i++) {
-            guessingWord[sequence[i]] = letter;
-        }
-    }
-};
+        checkLetters(lettersGuessed);
+        completeRound();
 
-function checkWin() {
-    if(guessingWord.indexOf("_") === -1) {
-        document.getElementById("youwinImage").style.cssText = "display: block";
-        document.getElementById("pressKeyTryAgain").style.cssText = "display: block";
-        wins++;
-        gameFinished = true;
-    }
-};
-
+}
