@@ -5,7 +5,9 @@
 body {
   /* Typography */
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  background: black;
+  background: url("../../assets/images/Fallout-Please-Stand-By.jpg") no-repeat 50% 50% fixed;
+  background-size: cover;
+
 
   /* Visual */
 }
@@ -19,7 +21,6 @@ html {
 }
 
 #main_image {
-  background: black;
   max-width: 50%;
   position: relative;
   left: 280px;
@@ -34,7 +35,7 @@ html {
 	margin-top: 10px;
   padding: 30px;
   text-align: center;
-  color: white;
+  color:orange;
   
 }
 
@@ -64,16 +65,20 @@ h2 {
 
 
 #leftColumn {
-	border: 1px solid orange;
+  border: 1px solid orange;
+  background-color: black;
+  opacity: 0.8;
   padding: 30px;
-  height: 634px;
+  height: 400px;
   width: 300px;
 }
 
-#rightColumn {
-	border: 1px solid orange; 
+#rightColumn { 
+  background-color: black;
+  border: 1px solid orange; 
+  opacity: 0.8;
 	padding: 30px;
-  height: 634px;
+  height: 400px;
   width: 300px;
   text-align: center;
 }

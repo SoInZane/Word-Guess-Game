@@ -20,6 +20,8 @@ var currentWordLetters = [];    // Empty array to hold the actual letters in the
 var letterDisplay = [];         // Empty array to hold the correct letters that display
 var guessesRemaining = 0;       // How many guesses are left  
 var lettersGuessed = [];        // Stores the letters that are guessed 
+var userGuess = "";             // Store user guess
+var falloutMusic = new Audio("assets/audio/fallout_3_opening.mp3")
 
 
 // Function to start a new game
@@ -61,6 +63,7 @@ function checkLetters(letter) {
         for(var i = 0; i < numOfLetters; i++) {
             if(currentWord[i] == letter) {
                 correctLetter = true;
+                
             }
         }
 
@@ -93,6 +96,7 @@ function completeRound() {
 
     if(currentWordLetters.toString() == letterDisplay.toString()) {
         wins++
+        falloutMusic.play();
         alert("Congratulations! You guessed " + currentWord + " correctly. Try to guess another!")
         console.log("Winner")
 
@@ -116,13 +120,14 @@ newGame();
 document.onkeyup = function(event) {
     guessesRemaining--;
 
-    lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log("The letter guessed was " + lettersGuessed);
+    // lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+        // console.log("The letter guessed was " + lettersGuessed);
 
-        // var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        // letterUser.push(userGuess);
+        userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        lettersGuessed.push(userGuess);
+        
 
-        checkLetters(lettersGuessed);
+        checkLetters(userGuess);
         completeRound();
 
 }
